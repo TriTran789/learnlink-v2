@@ -32,8 +32,8 @@ export const signIn = async (req: Request, res: Response) => {
       {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
-        // sameSite: "none",
+        // sameSite: "strict",
+        sameSite: "none",
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
       }
     );
@@ -62,8 +62,8 @@ export const signOut = async (req: Request, res: Response) => {
     res.clearCookie("refreshToken", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      // sameSite: "none",
+      // sameSite: "strict",
+      sameSite: "none",
     });
 
     res
